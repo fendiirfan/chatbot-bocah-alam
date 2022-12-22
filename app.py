@@ -42,5 +42,5 @@ if button==True:
     if invalidInput:
         st.write('Please Input the Correct Sentence')
     else:
-        with st.spinner('Wait for it...'):
+        with st.spinner('Typing...'):
           st.write(chatGPT(user_input))        
