@@ -49,7 +49,8 @@ if button==True:
         
 
         with st.spinner('Wait for it...'):
-          response_text = chatGPT(user_input)
+          st.write(chatGPT(user_input))
+#           response_text = chatGPT(user_input)
         
         # DISPLAY PREDICTION
-        st.write(response_text)
+#         st.write(response_text)
