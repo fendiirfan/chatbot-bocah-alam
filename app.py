@@ -3,7 +3,7 @@ import requests
 import time
 
 def chatGPT(text):
-  url = "https://api.openai.com/v1/completions"
+  url = st.secrets["api_url"]
   headers = {
   "Content-Type": "application/json",
   "Authorization": st.secrets["chatgpt_token"],
@@ -43,17 +43,13 @@ if button==True:
         st.write('Please Input the Correct Sentence')
     else:
         # DISPLAY LOADING PROGRESS FROM 0-20s
-        my_bar = st.progress(0)
+#         my_bar = st.progress(0)
 
-        progressBar(my_bar,0,20)
+#         progressBar(my_bar,0,20)
         
-        response_text = chatGPT(user_input)
 
-        # DISPLAY LOADING PROGRESS FROM 20-70
-        progressBar(my_bar,20,70)
-        
-        # DISPLAY LOADING PROGRESS FROM 70-100
-        progressBar(my_bar,70,100)
+        with st.spinner('Wait for it...'):
+          response_text = chatGPT(user_input)
         
         # DISPLAY PREDICTION
         st.write(response_text)
