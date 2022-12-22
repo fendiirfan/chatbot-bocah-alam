@@ -20,7 +20,7 @@ def chatGPT(text):
   
   return output
 
-st.title('Prototype ChatBot E-Commerce Bocah Alam')
+st.title('ChatBot E-Commerce Bocah Alam')
 st.text("")
 st.text("")
 
@@ -30,7 +30,7 @@ st.image(image,width=100,)
 st.text("")
 
 # inputan user
-user_input = st.text_input('Input Sentence')
+user_input = st.text_input('what can I do for you?')
 
 # tombols
 button = st.button('Send')
