@@ -17,7 +17,7 @@ def chatGPT(text):
   response = requests.post(url, headers=headers, json=data)
   output = response.json()['choices'][0]['text']
   
-  return print(output)
+  return output
 
 def progressBar(my_bar,start,end):
     for percent_complete in range(start,end):
