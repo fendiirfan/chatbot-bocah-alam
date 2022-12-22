@@ -24,9 +24,9 @@ st.title('Prototype ChatBot E-Commerce Bocah Alam')
 st.text("")
 st.text("")
 
-image = Image.open('Logo.png',width=10)
+image = Image.open('Logo.svg')
 
-st.image(image)
+st.image(image,width=10)
 st.text("")
 
 # inputan user
