@@ -42,15 +42,5 @@ if button==True:
     if invalidInput:
         st.write('Please Input the Correct Sentence')
     else:
-        # DISPLAY LOADING PROGRESS FROM 0-20s
-#         my_bar = st.progress(0)
-
-#         progressBar(my_bar,0,20)
-        
-        st.write(chatGPT(user_input))
-#         with st.spinner('Wait for it...'):
-#           st.write(chatGPT(user_input))
-#           response_text = chatGPT(user_input)
-        
-        # DISPLAY PREDICTION
-#         st.write(response_text)
+        with st.spinner('Wait for it...'):
+          st.write(chatGPT(user_input))        
