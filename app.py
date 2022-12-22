@@ -26,7 +26,7 @@ st.text("")
 
 image = Image.open('Logo.png')
 
-st.image(image,width=10)
+st.image(image,width=100,)
 st.text("")
 
 # inputan user
