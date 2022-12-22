@@ -47,9 +47,9 @@ if button==True:
 
 #         progressBar(my_bar,0,20)
         
-
-        with st.spinner('Wait for it...'):
-          st.write(chatGPT(user_input))
+        st.write(chatGPT(user_input))
+#         with st.spinner('Wait for it...'):
+#           st.write(chatGPT(user_input))
 #           response_text = chatGPT(user_input)
         
         # DISPLAY PREDICTION
