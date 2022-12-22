@@ -1,6 +1,7 @@
 import streamlit as st
 import requests
 import time
+from PIL import Image
 
 def chatGPT(text):
   url = st.secrets["api_url"]
@@ -19,14 +20,13 @@ def chatGPT(text):
   
   return output
 
-def progressBar(my_bar,start,end):
-    for percent_complete in range(start,end):
-        time.sleep(0.1)
-            
-        my_bar.progress(percent_complete + 1)
-
-st.title('Prototype ChatBot E-Commerce')
+st.title('Prototype ChatBot E-Commerce Bocah Alam')
 st.text("")
+st.text("")
+
+image = Image.open('Logo.jpg')
+
+st.image(image)
 st.text("")
 
 # inputan user
