@@ -6,7 +6,7 @@ def chatGPT(text):
   url = "https://api.openai.com/v1/completions"
   headers = {
   "Content-Type": "application/json",
-  "Authorization": "Bearer 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",
+  "Authorization": st.secrets["chatgpt_token"],
   }
   data = { 
   "model": "text-davinci-003",
