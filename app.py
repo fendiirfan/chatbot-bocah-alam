@@ -3,7 +3,7 @@ import requests
 import time
 from PIL import Image
 
-def chatGPT(text):
+def chatBot(text):
   url = st.secrets["api_url"]
   headers = {
   "Content-Type": "application/json",
@@ -43,4 +43,4 @@ if button==True:
         st.write('Please Input the Correct Sentence')
     else:
         with st.spinner('Typing...'):
-          st.write(chatGPT(user_input))        
+          st.write(chatBot(user_input))        
