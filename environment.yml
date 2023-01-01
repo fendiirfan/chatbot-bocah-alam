@@ -1,8 +1,12 @@
  channels:
      - conda-forge
  dependencies:
-     - dlib
+     - Jinja2
+     - contourpy
      - numpy
-     - scipy
-     - opencv
-     - face_recognition
+     - packaging 
+     - pandas
+     - pillow
+     - PyYAML
+     - tornado
+     - xyzservices
