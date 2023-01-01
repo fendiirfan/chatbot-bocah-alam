@@ -2,5 +2,5 @@
  channels:
      - conda-forge
  dependencies:
-     - bokeh
-     - streamlit-bokeh-events
+     - bokeh=3.0.3
+     - streamlit-bokeh-events=0.1.2
