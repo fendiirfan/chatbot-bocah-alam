@@ -1,13 +1,5 @@
+ name : coba
  channels:
      - conda-forge
  dependencies:
-     - Jinja2
-     - contourpy
-     - numpy
-     - packaging 
-     - pandas
-     - pillow
-     - PyYAML
-     - tornado
-     - xyzservices
-     - bokeh
+     - bokeh=2.4.2
