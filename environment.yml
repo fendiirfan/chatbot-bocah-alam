@@ -1,5 +1,8 @@
-channels:
+ channels:
      - conda-forge
  dependencies:
+     - dlib
      - numpy
-     - bokeh
+     - scipy
+     - opencv
+     - face_recognition
