@@ -1,24 +1,12 @@
 import streamlit as st
-import requests
-import time
 from PIL import Image
+from chatbot import chatBot
 
-def chatBot(text):
-  url = st.secrets["api_url"]
-  headers = {
-  "Content-Type": "application/json",
-  "Authorization": st.secrets["chatgpt_token"],
-  }
-  data = { 
-  "model": "text-davinci-003",
-  "prompt": text,
-  "max_tokens": 4000,
-  "temperature": 1.0,
-  }
-  response = requests.post(url, headers=headers, json=data)
-  output = response.json()['choices'][0]['text']
-  
-  return output
+from bokeh.models.widgets import Button
+from bokeh.models import CustomJS
+from streamlit_bokeh_events import streamlit_bokeh_events
+
+
 
 st.title('ChatBot E-Commerce Bocah Alam')
 st.text("")
@@ -29,6 +17,8 @@ image = Image.open('Logo.png')
 st.image(image,width=100,)
 st.text("")
 
+
+
 # inputan user
 user_input = st.text_input('what can I do for you?')
 
@@ -38,9 +28,45 @@ button = st.button('Send')
 invalidInput = (len(user_input) <= 3 or
                 len(user_input.split(' ')) > 200)
 
-if button==True:
+stt_button = Button(label="Speak", width=100)
+
+stt_button.js_on_event("button_click", CustomJS(code="""
+    var recognition = new webkitSpeechRecognition();
+    recognition.continuous = true;
+    recognition.interimResults = true;
+ 
+    recognition.onresult = function (e) {
+        var value = "";
+        for (var i = e.resultIndex; i < e.results.length; ++i) {
+            if (e.results[i].isFinal) {
+                value += e.results[i][0].transcript;
+            }
+        }
+        if ( value != "") {
+            document.dispatchEvent(new CustomEvent("GET_TEXT", {detail: value}));
+        }
+    }
+    recognition.start();
+    """))
+
+result = streamlit_bokeh_events(
+    stt_button,
+    events="GET_TEXT",
+    key="listen",
+    refresh_on_update=False,
+    override_height=75,
+    debounce_time=0)
+
+if result:
+    if "GET_TEXT" in result:
+        st.write("Your command : \n",result.get("GET_TEXT"))
+        with st.spinner('Typing...'):
+          st.markdown("ChatBot Response : \n")
+          st.write(chatBot(user_input))
+elif button==True:
     if invalidInput:
         st.write('Please Input the Correct Sentence')
     else:
         with st.spinner('Typing...'):
+          st.markdown("ChatBot Response : \n")
           st.write(chatBot(user_input))        
