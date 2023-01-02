@@ -12,7 +12,7 @@ jobs:
       - checkout
       - python/load-cache
       - run:
-          command: pip install -r src/requirements.txt
+          command: pip install -r requirements.txt
           name: Install Deps
       - python/save-cache
       - run:
