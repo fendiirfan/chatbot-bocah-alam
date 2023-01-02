@@ -15,11 +15,8 @@ jobs:
           command: pip install -r requirements.txt
           name: Install Deps
       - python/save-cache
-      - run:
-          command: streamlit run ./app.py
-          name: Test
 
 workflows:
   main:
     jobs:
-      - build-and-test
+      - build
