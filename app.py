@@ -62,7 +62,7 @@ if result:
         st.write("Your command : \n",result.get("GET_TEXT"))
         with st.spinner('Typing...'):
           st.markdown("ChatBot Response : \n")
-          st.write(chatBot(user_input))
+          st.write(chatBot(result.get("GET_TEXT")))
 elif button==True:
     if invalidInput:
         st.write('Please Input the Correct Sentence')
