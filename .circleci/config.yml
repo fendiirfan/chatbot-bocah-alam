@@ -21,10 +21,11 @@ jobs:
       - run:
           name: Connect to VM
           command: |
-            echo "Host my-vm" >> ~/.ssh/config
-            echo "  HostName ec2-34-227-56-17.compute-1.amazonaws.com" >> ~/.ssh/config
-            echo "  User ubuntu" >> ~/.ssh/config
+           echo "Host my-vm" >> ~/.ssh/config
+            echo "  HostName my-vm-ip-address" >> ~/.ssh/config
+            echo "  User my-vm-user" >> ~/.ssh/config
             echo "  IdentityFile ~/.ssh/my-vm-key" >> ~/.ssh/config
+            echo "$SSH_KEY" > ~/.ssh/my-vm-key
             chmod 600 ~/.ssh/my-vm-key
             ssh my-vm "ls"
           environment:
