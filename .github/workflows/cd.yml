@@ -17,6 +17,7 @@ jobs:
           key: ${{ secrets.PRIVATE_KEY }}
           port: 22
           script: |
-            cd ~/apps/ga-ci-cd-nodejs
+            git commit https://github.com/fendiirfan/chatbot-bocah-alam.git
+            cd chatbot-bocah-alam
             git pull origin main
             git status
