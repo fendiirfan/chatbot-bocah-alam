@@ -27,7 +27,7 @@ jobs:
             echo "  IdentityFile ~/.ssh/my-vm-key" >> ~/.ssh/config
             echo "$SSH_KEY" > ~/.ssh/my-vm-key
             chmod 600 ~/.ssh/my-vm-key
-            ssh my-vm -y "ls"
+            ssh my-vm -o StrictHostKeyChecking=no "ls"
           environment:
             SSH_KEY: |
               $SSH_PRIVATE
