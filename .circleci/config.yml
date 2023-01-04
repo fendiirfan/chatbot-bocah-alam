@@ -25,6 +25,8 @@ jobs:
             echo "  HostName ec2-34-227-56-17.compute-1.amazonaws.com" >> ~/.ssh/config
             echo "  User ubuntu" >> ~/.ssh/config
             echo "  IdentityFile ~/.ssh/my-vm-key" >> ~/.ssh/config
+            chmod 600 ~/.ssh/my-vm-key
+            ssh my-vm "ls"
           environment:
             SSH_KEY: |
               $SSH_PRIVATE
