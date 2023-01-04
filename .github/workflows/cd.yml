@@ -17,9 +17,13 @@ jobs:
           key: ${{ secrets.PRIVATE_KEY }}
           port: 22
           script: |
-            git clone https://github.com/fendiirfan/chatbot-bocah-alam.git
+            DIRECTORY=/home/ubuntu/chatbot-bocah-alam
+            if [ ! -d "$DIRECTORY" ]; then
+              echo "Cloning...."
+              git clone https://github.com/fendiirfan/chatbot-bocah-alam.git
+            fi
             echo ls
-            cd chatbot-bocah-alam
+            cd $DIRECTORY
             pip install -r requirements.txt
             echo "Install Depedencies successfully"
             streamlit run app.py
