@@ -17,5 +17,6 @@ jobs:
           key: ${{ secrets.PRIVATE_KEY }}
           port: 22
           script: |
-            git commit https://github.com/fendiirfan/chatbot-bocah-alam.git
+            git clone https://github.com/fendiirfan/chatbot-bocah-alam.git
             ls
+            
