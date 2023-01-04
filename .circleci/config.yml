@@ -4,7 +4,7 @@ orbs:
   python: circleci/python@0.2.1
 
 jobs:
-  build:
+  build-deploy:
     docker:
       - image: circleci/python:3.7.9
     executor: python/default
@@ -15,8 +15,12 @@ jobs:
           command: pip install -r requirements.txt
           name: Install Deps
       - python/save-cache
-
+      - add_ssh_keys:
+          fingerprints:
+            - "ec:28:a7:28:95:db:e6:78:d3:80:ef:0b:2c:fd:34:8f"
+      - run:
+          command: cd HOME/.ssh/ || ls
 workflows:
   main:
     jobs:
-      - build
+      - build-deploy
