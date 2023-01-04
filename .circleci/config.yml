@@ -28,7 +28,10 @@ jobs:
 #             command: |
 #               ssh $SSH_USER@$SSH_HOST "ls && git pull"
         - run:
-            name: Deploy Over SSH
+            name:clone
+            command: git clone https://github.com/fendiirfan/chatbot-bocah-alam.git
+        - run:
+            name: ls
             command: ls
 workflows:
   main:
