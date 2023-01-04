@@ -29,8 +29,11 @@ jobs:
               ssh $SSH_USER@$SSH_HOST "git clone https://github.com/fendiirfan/chatbot-bocah-alam.git && ls"
               
 workflows:
-    build-and-deploy:
+  main:
     jobs:
         - build
-        - deploy
+        - deploy:
+            requires:
+              - build
+
        
