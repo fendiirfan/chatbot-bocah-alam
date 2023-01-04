@@ -27,8 +27,14 @@ jobs:
             name: Deploy Over SSH
             command: |
               ssh $SSH_USER@$SSH_HOST "git clone https://github.com/fendiirfan/chatbot-bocah-alam.git && ls"
+              
 workflows:
-  main:
+    build-and-deploy:
     jobs:
-      - build
-      - deploy
+        - build
+        - deploy:
+            requires:
+            - build # only deploy once build job has completed
+            filters:
+            branches:
+                only: main # only deploy on the main branch
