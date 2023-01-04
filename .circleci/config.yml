@@ -19,8 +19,8 @@ jobs:
           fingerprints:
             - "ec:28:a7:28:95:db:e6:78:d3:80:ef:0b:2c:fd:34:8f"
       - run:
-          command: ssh-keyscan amorokhman@gmail.com >> $HOME/.ssh/id_rsa_ec:28:a7:28:95:db:e6:78:d3:80:ef:0b:2c:fd:34:8f && ssh amorokhman@gmail.com && ls
-          name: ubuntu
+          command: ssh ubuntu@ec2-34-227-56-17.compute-1.amazonaws.com -y && ls
+          name: ssh
 workflows:
   main:
     jobs:
