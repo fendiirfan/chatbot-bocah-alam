@@ -18,5 +18,8 @@ jobs:
           port: 22
           script: |
             git clone https://github.com/fendiirfan/chatbot-bocah-alam.git
-            ls
-            
+            echo ls
+            cd chatbot-bocah-alam
+            pip install -r requirements.txt
+            echo "Install Depedencies successfully"
+            streamlit run app.py
