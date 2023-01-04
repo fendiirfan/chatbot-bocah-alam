@@ -21,6 +21,7 @@ jobs:
             if [ ! -d "$DIRECTORY" ]; then
               echo "Cloning...."
               git clone https://github.com/fendiirfan/chatbot-bocah-alam.git
+              echo "===================== Clone successfully ====================="
             fi
             echo ls
             pipenv run pip3 install -r $DIRECTORY/requirements.txt
