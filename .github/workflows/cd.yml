@@ -23,6 +23,7 @@ jobs:
               git clone https://github.com/fendiirfan/chatbot-bocah-alam.git
             fi
             echo ls
+            pipenv shell
             cd $DIRECTORY
             pip3 install -r requirements.txt
             echo "Install Depedencies successfully"
