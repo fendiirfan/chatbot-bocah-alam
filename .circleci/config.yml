@@ -18,9 +18,18 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - "ec:28:a7:28:95:db:e6:78:d3:80:ef:0b:2c:fd:34:8f"
-      - run:
-          command: ssh -o StrictHostKeyChecking=no ubuntu@ec2-34-227-56-17.compute-1.amazonaws.com && ls
-          name: ssh
+        - run:
+            name: Connect to VM
+            command: |
+              echo "Host my-vm" >> ~/.ssh/config
+              echo "  HostName ec2-34-227-56-17.compute-1.amazonaws.com" >> ~/.ssh/config
+              echo "  User ubuntu" >> ~/.ssh/config
+              echo "  IdentityFile ~/.ssh/my-vm-key" >> ~/.ssh/config
+            environment:
+              SSH_KEY: |
+                $SSH_PRIVATE
+            setup_remote_docker:
+              host: my-vm
 workflows:
   main:
     jobs:
