@@ -1,29 +1,29 @@
-name: cd
+# name: cd
 
-on:
-  push:
-    branches: [ main ] 
+# on:
+#   push:
+#     branches: [ main ] 
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
     
-    steps:
-      - name: Deploy using ssh
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.PRIVATE_KEY }}
-          port: 22
-          script: |
-            DIRECTORY=/home/ubuntu/chatbot-bocah-alam
-            if [ ! -d "$DIRECTORY" ]; then
-              echo "Cloning...."
-              git clone https://github.com/fendiirfan/chatbot-bocah-alam.git
-              echo "===================== Clone successfully ====================="
-            fi
-            echo ls
-            pipenv run pip3 install -r $DIRECTORY/requirements.txt
-            echo "Install Depedencies successfully"
-            pipenv run streamlit run $DIRECTORY/app.py
+#     steps:
+#       - name: Deploy using ssh
+#         uses: appleboy/ssh-action@master
+#         with:
+#           host: ${{ secrets.HOST }}
+#           username: ${{ secrets.USERNAME }}
+#           key: ${{ secrets.PRIVATE_KEY }}
+#           port: 22
+#           script: |
+#             DIRECTORY=/home/ubuntu/chatbot-bocah-alam
+#             if [ ! -d "$DIRECTORY" ]; then
+#               echo "Cloning...."
+#               git clone https://github.com/fendiirfan/chatbot-bocah-alam.git
+#               echo "===================== Clone successfully ====================="
+#             fi
+#             echo ls
+#             pipenv run pip3 install -r $DIRECTORY/requirements.txt
+#             echo "Install Depedencies successfully"
+#             pipenv run streamlit run $DIRECTORY/app.py
