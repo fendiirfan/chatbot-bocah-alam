@@ -19,8 +19,8 @@ jobs:
           fingerprints:
             - "ec:28:a7:28:95:db:e6:78:d3:80:ef:0b:2c:fd:34:8f"
       - run:
-            name: Deploy Over SSH
-            command: |
+          name: Deploy Over SSH
+          command: |
             ssh $SSH_USER@$SSH_HOST "ls && git pull"
 workflows:
   main:
