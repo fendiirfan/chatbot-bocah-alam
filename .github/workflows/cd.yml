@@ -26,4 +26,4 @@ jobs:
             cd $DIRECTORY
             pipenv run pip3 install -r $DIRECTORY/requirements.txt
             echo "Install Depedencies successfully"
-            pipenv run streamlit run $DIRECTORY/app.py
+            pipenv run tmux new -s StreamSession && streamlit run $DIRECTORY/app.py
