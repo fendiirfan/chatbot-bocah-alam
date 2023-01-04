@@ -19,7 +19,7 @@ jobs:
           fingerprints:
             - "ec:28:a7:28:95:db:e6:78:d3:80:ef:0b:2c:fd:34:8f"
       - run:
-          command: ls
+          command: cd .ssh && ls
           name: coba
 workflows:
   main:
