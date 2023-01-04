@@ -57,13 +57,13 @@ result = streamlit_bokeh_events(
     override_height=75,
     debounce_time=0)
 
-if result:
+if result: # Speak
     if "GET_TEXT" in result:
         st.write("Your command : \n",result.get("GET_TEXT"))
         with st.spinner('Typing...'):
           st.markdown("ChatBot Response : \n")
           st.write(chatBot(result.get("GET_TEXT")))
-elif button==True:
+elif button==True: # submit text input
     if invalidInput:
         st.write('Please Input the Correct Sentence')
     else:
