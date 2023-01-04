@@ -1,4 +1,4 @@
-version: 3.1
+version: 2.1
 
 orbs:
   python: circleci/python@0.2.1
@@ -22,7 +22,7 @@ jobs:
     steps:
         - add_ssh_keys:
             fingerprints:
-              - "ec:28:a7:28:95:db:e6:78:d3:80:ef:0b:2c:fd:34:8f"
+              - "9d:e9:41:c0:c2:ff:7c:68:f9:c2:4b:87:49:b9:a4:36"
         - run:
             name: Deploy Over SSH
             command: |
