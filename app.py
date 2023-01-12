@@ -25,8 +25,6 @@ user_input = st.text_input('what can I do for you?')
 # tombols
 button = st.button('Send')
 
-invalidInput = (len(user_input) <= 3 or
-                len(user_input.split(' ')) > 200)
 
 stt_button = Button(label="Speak", width=100)
 
@@ -64,9 +62,6 @@ if result: # Speak
           st.markdown("ChatBot Response : \n")
           st.write(chatBot(result.get("GET_TEXT")))
 elif button==True: # submit text input
-    if invalidInput:
-        st.write('Please Input the Correct Sentence')
-    else:
-        with st.spinner('Typing...'):
-          st.markdown("ChatBot Response : \n")
-          st.write(chatBot(user_input))        
+    with st.spinner('Typing...'):
+      st.markdown("ChatBot Response : \n")
+      st.write(chatBot(user_input))        
