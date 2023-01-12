@@ -10,7 +10,7 @@ def chatBot(text):
   data = { 
   "model": "text-davinci-003",
   "prompt": text,
-  "max_tokens": 40000,
+  "max_tokens": 4000,
   "temperature": 1.0,
   }
   response = requests.post(url, headers=headers, json=data)
