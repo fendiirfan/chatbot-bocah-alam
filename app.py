@@ -61,6 +61,7 @@ if result: # Speak
         with st.spinner('Typing...'):
           st.markdown("ChatBot Response : \n")
           st.write(chatBot(result.get("GET_TEXT")))
+    result = False
 elif button==True: # submit text input
     with st.spinner('Typing...'):
       st.markdown("ChatBot Response : \n")
