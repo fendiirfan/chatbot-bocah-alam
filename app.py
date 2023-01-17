@@ -18,7 +18,7 @@ st.image(image,width=100,)
 st.text("")
 
 
-while 1=1:
+while 1==1:
     # inputan user
     user_input = st.text_input('what can I do for you?')
 
