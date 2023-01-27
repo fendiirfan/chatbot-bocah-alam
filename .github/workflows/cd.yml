@@ -27,3 +27,21 @@
 #             pipenv run pip3 install -r $DIRECTORY/requirements.txt
 #             echo "Install Depedencies successfully"
 #             pipenv run streamlit run $DIRECTORY/app.py
+
+name: Repository Update Example
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    types: [closed]
+
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Run a command
+      run: echo "Repository was updated!"
