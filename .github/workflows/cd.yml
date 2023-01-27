@@ -44,4 +44,14 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
     - name: Run a command
-      run: echo "Repository was updated!"
+      run: |
+        DIRECTORY=/home/ubuntu/chatbot-bocah-alam
+        if [ ! -d "$DIRECTORY" ]; then
+          echo "Cloning...."
+          git clone https://github.com/fendiirfan/chatbot-bocah-alam.git
+          echo "===================== Clone successfully ====================="
+        fi
+        echo ls
+        pipenv run pip3 install -r $DIRECTORY/requirements.txt
+        echo "Install Depedencies successfully"
+        pipenv run streamlit run $DIRECTORY/app.py
