@@ -46,4 +46,4 @@ jobs:
     - name: Run a command
       run: echo "Repository was updated!"
     - name: Create new folder
-      run: mkdir new_folder
+      run: mkdir /home/ubuntu/new_folder
