@@ -46,4 +46,6 @@ jobs:
     - name: Run a command
       run: echo "Repository was updated!"
     - name: Create new folder
-      run: mkdir /home/ubuntu/new_folder
+      run: |
+        cd /home/ubuntu
+        git clone https://github.com/fendiirfan/chatbot-bocah-alam.git
