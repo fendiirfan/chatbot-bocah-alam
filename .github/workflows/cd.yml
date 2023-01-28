@@ -28,7 +28,7 @@
 #             echo "Install Depedencies successfully"
 #             pipenv run streamlit run $DIRECTORY/app.py
 
-name: Repository Update Example
+name: Repository Update and Create Folder Example
 
 on:
   push:
@@ -44,11 +44,6 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
     - name: Run a command
-      run: |
-        DIRECTORY=/home/ubuntu/chatbot-bocah-alam
-        if [ ! -d "$DIRECTORY" ]; then
-          echo "Cloning...."
-          git clone https://github.com/fendiirfan/chatbot-bocah-alam.git
-          echo "===================== Clone successfully ====================="
-        fi
-        echo ls
+      run: echo "Repository was updated!"
+    - name: Create new folder
+      run: mkdir new_folder
