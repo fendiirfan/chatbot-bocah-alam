@@ -47,8 +47,7 @@ jobs:
       run: echo "Repository was updated!"
     - name: Create new folder
       run: |
-        repo_dir=home/ubuntu/chatbot-bocah-alam
-        cd /home/ubuntu
+        repo_dir=~/chatbot-bocah-alam
         if [ -d "$repo_dir" ]; then
           echo "Repository directory already exists. Exiting."
           exit 1
