@@ -47,6 +47,12 @@ jobs:
       run: echo "Repository was updated!"
     - name: Create new folder
       run: |
+        DIRECTORY=/home/ubuntu/chatbot-bocah-alam
         cd /home/ubuntu
+        if [ ! -d "$DIRECTORY" ]; then
+          echo "Cloning...."
+          git clone https://github.com/fendiirfan/chatbot-bocah-alam.git
+          echo "===================== Clone successfully ====================="
+        fi
         git clone https://github.com/fendiirfan/chatbot-bocah-alam.git
         echo ls
