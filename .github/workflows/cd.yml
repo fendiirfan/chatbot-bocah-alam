@@ -50,7 +50,6 @@ jobs:
         repo_dir=~/chatbot-bocah-alam
         if [ -d "$repo_dir" ]; then
           echo "Repository directory already exists. Exiting."
-          exit 1
         else
           echo "Cloning...."
           git clone https://github.com/fendiirfan/chatbot-bocah-alam.git
