@@ -33,7 +33,7 @@ name: Repository Update and Create Folder Example
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build:
