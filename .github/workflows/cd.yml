@@ -49,16 +49,16 @@ jobs:
           git clone https://github.com/fendiirfan/chatbot-bocah-alam.git
           echo "===================== Clone successfully ====================="
         fi
-        echo ls
-    - name: Send custom JSON data to Slack workflow
-      id: slack
-      uses: slackapi/slack-github-action@v1.23.0
-      with:
-        # This data can be any valid JSON from a previous step in the GitHub Action
-        payload: |
-          {
-            "key": "value",
-            "foo": "bar"
-          }
-      env:
-        SLACK_WEBHOOK_URL: $SLACK_BOT
+        curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' https://hooks.slack.com/services/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
+#     - name: Send custom JSON data to Slack workflow
+#       id: slack
+#       uses: slackapi/slack-github-action@v1.23.0
+#       with:
+#         # This data can be any valid JSON from a previous step in the GitHub Action
+#         payload: |
+#           {
+#             "key": "value",
+#             "foo": "bar"
+#           }
+#       env:
+#         SLACK_WEBHOOK_URL: $SLACK_BOT
