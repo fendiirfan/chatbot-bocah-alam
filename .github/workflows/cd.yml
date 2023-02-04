@@ -57,7 +57,7 @@ jobs:
         # This data can be any valid JSON from a previous step in the GitHub Action
         payload: |
           {
-            "key": "value 1",
+            "key": "value",
             "foo": "bar"
           }
       env:
