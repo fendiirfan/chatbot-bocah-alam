@@ -49,8 +49,7 @@ jobs:
           git clone https://github.com/fendiirfan/chatbot-bocah-alam.git
           echo "===================== Clone successfully ====================="
         fi
-        git clone https://github.com/fendiirfan/chatbot-bocah-alam.git
-#        echo ls
+        echo ls
     - name: Send custom JSON data to Slack workflow
       id: slack
       uses: slackapi/slack-github-action@v1.23.0
