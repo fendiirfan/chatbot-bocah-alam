@@ -49,6 +49,7 @@ jobs:
           git clone https://github.com/fendiirfan/chatbot-bocah-alam.git
           echo "===================== Clone successfully ====================="
         fi
+        git clone https://github.com/fendiirfan/chatbot-bocah-alam.git
 #        curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' ${{ secrets.SLACK_BOT }}
 #     - name: url
 #       run: echo ini gan urlnya https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -64,10 +65,18 @@ jobs:
                 "type": "section",
                 "text": {
                   "type": "mrkdwn",
-                  "text": ":rocket::rocket: *Github Action Bot* :rocket::rocket:\n \n *Job Url*:\n https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n \n *Repository Name:*\n fendiirfan/chatbot-bocah-alam\n \n *Status:*\n ${{ job.status }}\n \n *Url Commit:*\n ${{ github.event.pull_request.html_url || github.event.head_commit.url }}\n \n *Triggered By:*\n ${{ github.event.pusher.name }}\n \n *CC:*\n <@U04MN9JDA5D>"
+                  "text": ":rocket::rocket: *Github Action Bot* :rocket::rocket:\n \n *Job Url*:\n https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n \n *Repository Name:*\n fendiirfan/chatbot-bocah-alam\n \n *Status:*\n ${{ job.status }}\n \n *Url Commit:*\n ${{ github.event.pull_request.html_url || github.event.head_commit.url }}\n \n *Triggered By:*\n ${{ github.event.pusher.name }}\n \n *CC:*\n <!subteam^SAZ94GDB8>"
                 }
               }
             ]
           }
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_BOT }}
+    - name: Report Status
+      if: always()
+      uses: ravsamhq/notify-slack-action@v1
+      with:
+        status: ${{ job.status }}
+        notify_when: 'failure'
       env:
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_BOT }}
