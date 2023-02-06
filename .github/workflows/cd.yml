@@ -83,7 +83,7 @@ jobs:
         # For posting a rich message using Block Kit
         payload: |
           {
-            "text": ":rocket::rocket: Github Action Bot :rocket::rocket:\n \n Job Url:\n Url\n \n Repository Name:\n Test\n \n Status:\n Success\n \n Url Commit:\n Url\n \n Triggered by:\n name",
+            "text": ":rocket::rocket: **Github Action Bot** :rocket::rocket:\n \n Job Url:\n Url\n \n Repository Name:\n Test\n \n Status:\n Success\n \n Url Commit:\n Url\n \n Triggered by:\n name",
             "blocks": [
               {
                 "type": "section",
