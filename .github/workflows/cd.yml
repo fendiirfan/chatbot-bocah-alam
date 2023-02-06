@@ -89,7 +89,7 @@ jobs:
                 "type": "section",
                 "text": {
                   "type": "mrkdwn",
-                  "text": "# 🚀🚀 Github Action Bot 🚀🚀\n**Job Url:**\nUrl\n\n**Repository Name:**\nTest\n\n**Status:**\Success\n\n**Url Commit:**\nUrl\n\n**Triggered by:**\nname"
+                  "text": "# :rocket::rocket: Github Action Bot :rocket::rocket:\n**Job Url:**\nUrl\n\n**Repository Name:**\nTest\n\n**Status:**\Success\n\n**Url Commit:**\nUrl\n\n**Triggered by:**\nname"
                 }
               }
             ]
