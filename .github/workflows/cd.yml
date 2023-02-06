@@ -51,4 +51,4 @@ jobs:
         fi
         curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' ${{ secrets.SLACK_BOT }}
     - name: url
-      run: echo ini gan urlnya {{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+      run: echo ini gan urlnya https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
