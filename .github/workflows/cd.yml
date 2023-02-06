@@ -41,51 +41,39 @@ jobs:
     steps:
     - name: Create new folder
       run: |
-        repo_dir=~/chatbot-bocah-alam
-        if [ -d "$repo_dir" ]; then
-          echo "Repository directory already exists. Exiting."
-        else
-          echo "Cloning...."
-          git clone https://github.com/fendiirfan/chatbot-bocah-alam.git
-          echo "===================== Clone successfully ====================="
-        fi
-        git clone https://github.com/fendiirfan/chatbot-bocah-alam.git
-#        curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' ${{ secrets.SLACK_BOT }}
-#     - name: Send custom JSON data to Slack workflow
-#       id: slack4
-#       uses: slackapi/slack-github-action@v1.23.0
-#       with:
-#         payload: |
-#           {
-#             "text": ":rocket::rocket: *Job Was Created* :rocket::rocket:\n \n *Job Url*:\n https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n \n *Repository Name:*\n fendiirfan/chatbot-bocah-alam\n \n *Status:*\n ${{ job.status }}\n \n *Url Commit:*\n ${{ github.event.pull_request.html_url || github.event.head_commit.url }}\n \n *Triggered By:*\n ${{ github.event.pusher.name }}\n \n *CC:*\n <@U04MN9JDA5D>",
-#             "blocks": [
-#               {
-#                 "type": "section",
-#                 "text": {
-#                   "type": "mrkdwn",
-#                   "text": ":rocket::rocket: *Github Action Bot* :rocket::rocket:\n \n *Job Url*:\n https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n \n *Repository Name:*\n fendiirfan/chatbot-bocah-alam\n \n *Status:*\n ${{ job.status }}\n \n *Url Commit:*\n ${{ github.event.pull_request.html_url || github.event.head_commit.url }}\n \n *Triggered By:*\n ${{ github.event.pusher.name }}\n \n *CC:*\n <!subteam^SAZ94GDB8>"
-#                 }
-#               }
-#             ]
-#           }
-#       env:
-#         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_BOT }}
-    - name: Notify slack success
-      if: success()
-      env:
-        SLACK_BOT_TOKEN: ${{ secrets.SLACK_NOTIFICATIONS_BOT_TOKEN }}
-      uses: voxmedia/github-action-slack-notify-build@v1
-      with:
-        channel: app-alerts
-        status: SUCCESS
-        color: good
+        
+        { # try
 
-    - name: Notify slack fail
-      if: failure()
-      env:
-        SLACK_BOT_TOKEN: ${{ secrets.SLACK_NOTIFICATIONS_BOT_TOKEN }}
-      uses: voxmedia/github-action-slack-notify-build@v1
+            repo_dir=~/chatbot-bocah-alam
+            if [ -d "$repo_dir" ]; then
+              echo "Repository directory already exists. Exiting."
+            else
+              echo "Cloning...."
+              git clone https://github.com/fendiirfan/chatbot-bocah-alam.git
+              echo "===================== Clone successfully ====================="
+            fi
+            git clone https://github.com/fendiirfan/chatbot-bocah-alam.git
+
+        } || { # catch
+            curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' ${{ secrets.SLACK_BOT }}
+        }
+#        curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' ${{ secrets.SLACK_BOT }}
+    - name: Send custom JSON data to Slack workflow
+      id: slack4
+      uses: slackapi/slack-github-action@v1.23.0
       with:
-        channel: app-alerts
-        status: FAILED
-        color: danger
+        payload: |
+          {
+            "text": ":rocket::rocket: *Job Was Created* :rocket::rocket:\n \n *Job Url*:\n https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n \n *Repository Name:*\n fendiirfan/chatbot-bocah-alam\n \n *Status:*\n ${{ job.status }}\n \n *Url Commit:*\n ${{ github.event.pull_request.html_url || github.event.head_commit.url }}\n \n *Triggered By:*\n ${{ github.event.pusher.name }}\n \n *CC:*\n <@U04MN9JDA5D>",
+            "blocks": [
+              {
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": ":rocket::rocket: *Github Action Bot* :rocket::rocket:\n \n *Job Url*:\n https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n \n *Repository Name:*\n fendiirfan/chatbot-bocah-alam\n \n *Status:*\n ${{ job.status }}\n \n *Url Commit:*\n ${{ github.event.pull_request.html_url || github.event.head_commit.url }}\n \n *Triggered By:*\n ${{ github.event.pusher.name }}\n \n *CC:*\n <!subteam^SAZ94GDB8>"
+                }
+              }
+            ]
+          }
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_BOT }}
