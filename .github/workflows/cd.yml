@@ -59,36 +59,13 @@ jobs:
         # For posting a rich message using Block Kit
         payload: |
           {
-            "text": "GitHub Action build result: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}",
+            "text": ":rocket::rocket: *Github Action Bot* :rocket::rocket:\n \n Job Url:\n Url\n \n Repository Name:\n fendiirfan/chatbot-bocah-alam\n \n Status:\n ${{ job.status }}\n \n Url Commit:\n ${{ github.event.pull_request.html_url || github.event.head_commit.url }}\n \n Triggered by:\n {{ github.event.pusher.name }}",
             "blocks": [
               {
                 "type": "section",
                 "text": {
                   "type": "mrkdwn",
-                  "text": "GitHub Action build result: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}"
-                }
-              }
-            ]
-          }
-      env:
-        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_BOT }}
-        SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
-    - name: Post to a Slack channel
-      id: slack1
-      uses: slackapi/slack-github-action@v1.23.0
-      with:
-        # Slack channel id, channel name, or user id to post message.
-        # See also: https://api.slack.com/methods/chat.postMessage#channels
-        channel-id: 'CHANNEL_ID'
-        # For posting a rich message using Block Kit
-        payload: |
-          {
-            "blocks": [
-              {
-                "type": "section",
-                "text": {
-                  "type": "mrkdwn",
-                  "text": ":rocket::rocket: *Github Action Bot* :rocket::rocket:\n \n Job Url:\n Url\n \n Repository Name:\n Test\n \n Status:\n Success\n \n Url Commit:\n Url\n \n Triggered by:\n name"
+                  "text": ":rocket::rocket: *Github Action Bot* :rocket::rocket:\n \n Job Url:\n Url\n \n Repository Name:\n fendiirfan/chatbot-bocah-alam\n \n Status:\n ${{ job.status }}\n \n Url Commit:\n ${{ github.event.pull_request.html_url || github.event.head_commit.url }}\n \n Triggered by:\n {{ github.event.pusher.name }}"
                 }
               }
             ]
