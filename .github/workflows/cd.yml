@@ -56,6 +56,7 @@ jobs:
 
         } || { # catch
             curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' ${{ secrets.SLACK_BOT }}
+            exit 1
         }
 #        curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' ${{ secrets.SLACK_BOT }}
     - name: Send custom JSON data to Slack workflow
