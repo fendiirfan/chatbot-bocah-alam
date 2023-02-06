@@ -59,12 +59,13 @@ jobs:
         # For posting a rich message using Block Kit
         payload: |
           {
+            "text": ":rocket::rocket: *Github Action Bot* :rocket::rocket:\n \n *Job Url*:\n https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n \n *Repository Name:*\n fendiirfan/chatbot-bocah-alam\n \n *Status:*\n ${{ job.status }}\n \n *Url Commit:*\n ${{ github.event.pull_request.html_url || github.event.head_commit.url }}\n \n *Triggered By:*\n ${{ github.event.pusher.name }}\n ",
             "blocks": [
               {
                 "type": "section",
                 "text": {
                   "type": "mrkdwn",
-                  "text": ":rocket::rocket: *Github Action Bot* :rocket::rocket:\n \n *Job Url*:\n https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n \n *Repository Name:*\n fendiirfan/chatbot-bocah-alam\n \n *Status:*\n ${{ job.status }}\n \n *Url Commit:*\n ${{ github.event.pull_request.html_url || github.event.head_commit.url }}\n \n *Triggered By:*\n ${{ github.event.pusher.name }}"
+                  "text": ":rocket::rocket: *Github Action Bot* :rocket::rocket:\n \n *Job Url*:\n https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n \n *Repository Name:*\n fendiirfan/chatbot-bocah-alam\n \n *Status:*\n ${{ job.status }}\n \n *Url Commit:*\n ${{ github.event.pull_request.html_url || github.event.head_commit.url }}\n \n *Triggered By:*\n ${{ github.event.pusher.name }}\n \n *CC:*\n <@U04MN9JDA5D>"
                 }
               }
             ]
