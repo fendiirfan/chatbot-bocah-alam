@@ -72,7 +72,7 @@ jobs:
         else
           slack_member_id="U0317HR1LE5"
         fi
-        curl -X POST -H 'Content-type: application/json' --data '{"text": ":rocket::rocket: *Job Was Created - * :rocket::rocket:\n \n *Job Url*:\n https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n \n *Repository Name:*\n fendiirfan/chatbot-bocah-alam\n \n *Status:*\n :warning: Failure :warning:\n \n *Url Commit:*\n ${{ github.event.pull_request.html_url || github.event.head_commit.url }}\n \n *Triggered By:*\n ${{ github.event.pusher.name }}\n \n *CC:*\n <@${{ slack_member_id }}>"}' ${{ secrets.SLACK_WEBHOOK_GITHUB_ACTION }}
+        curl -X POST -H 'Content-type: application/json' --data '{"text": ":rocket::rocket: *Job Was Created - * :rocket::rocket:\n \n *Job Url*:\n https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n \n *Repository Name:*\n fendiirfan/chatbot-bocah-alam\n \n *Status:*\n :warning: Failure :warning:\n \n *Url Commit:*\n ${{ github.event.pull_request.html_url || github.event.head_commit.url }}\n \n *Triggered By:*\n ${{ github.event.pusher.name }}\n \n *CC:*\n <@$slack_member_id>"}' ${{ secrets.SLACK_WEBHOOK_GITHUB_ACTION }}
 #   slack-notif:
 #     needs: build
 #     runs-on: self-hosted
