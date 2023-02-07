@@ -58,6 +58,10 @@ jobs:
             
         }
 #        curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' ${{ secrets.SLACK_BOT }}
+  slack-notif:
+    needs: build
+    runs-on: self-hosted
+    steps:
     - name: Send custom JSON data to Slack workflow
       id: slack4
       uses: slackapi/slack-github-action@v1.23.0
