@@ -59,25 +59,40 @@ jobs:
         }
 #        curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' ${{ secrets.SLACK_BOT }}
   slack-notif:
-    needs: build
     runs-on: self-hosted
     steps:
-    - name: Send custom JSON data to Slack workflow
-      id: slack4
-      uses: slackapi/slack-github-action@v1.23.0
-      with:
-        payload: |
-          {
-            "text": ":rocket::rocket: *Job Was Created* :rocket::rocket:\n \n *Job Url*:\n https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n \n *Repository Name:*\n fendiirfan/chatbot-bocah-alam\n \n *Status:*\n :white_check_mark: Success :white_check_mark:\n \n *Url Commit:*\n ${{ github.event.pull_request.html_url || github.event.head_commit.url }}\n \n *Triggered By:*\n ${{ github.event.pusher.name }}\n \n *CC:*\n <@U04MN9JDA5D>",
-            "blocks": [
-              {
-                "type": "section",
-                "text": {
-                  "type": "mrkdwn",
-                  "text": ":rocket::rocket: *Github Action Bot* :rocket::rocket:\n \n *Job Url*:\n https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n \n *Repository Name:*\n fendiirfan/chatbot-bocah-alam\n \n *Status:*\n Success :white_check_mark:\n \n *Url Commit:*\n ${{ github.event.pull_request.html_url || github.event.head_commit.url }}\n \n *Triggered By:*\n ${{ github.event.pusher.name }}\n \n *CC:*\n <!subteam^SAZ94GDB8>"
-                }
-              }
-            ]
-          }
-      env:
-        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_BOT }}
+    - name: Slack Notif
+      run: |
+        if [ ${{ github.event.pusher.name }} = "alfontius-linata" ]; then
+          slack_member_id="U0317HR1LE5"
+        elif [ ${{ github.event.pusher.name }} = "afsabilly" ]; then
+          slack_member_id="U03PLSBL7S6"
+        elif [ ${{ github.event.pusher.name }} = "fendiirfan" ]; then
+          slack_member_id="U04MN9JDA5D"
+        else
+          slack_member_id="U0317HR1LE5"
+        fi
+        curl -X POST -H 'Content-type: application/json' --data '{"text": ":rocket::rocket: *Job Was Created - * :rocket::rocket:\n \n *Job Url*:\n https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n \n *Repository Name:*\n fendiirfan/chatbot-bocah-alam\n \n *Status:*\n :warning: Failure :warning:\n \n *Url Commit:*\n ${{ github.event.pull_request.html_url || github.event.head_commit.url }}\n \n *Triggered By:*\n ${{ github.event.pusher.name }}\n \n *CC:*\n <@${{ slack_member_id }}>"}' ${{ secrets.SLACK_WEBHOOK_GITHUB_ACTION }}
+#   slack-notif:
+#     needs: build
+#     runs-on: self-hosted
+#     steps:
+#     - name: Send custom JSON data to Slack workflow
+#       id: slack4
+#       uses: slackapi/slack-github-action@v1.23.0
+#       with:
+#         payload: |
+#           {
+#             "text": ":rocket::rocket: *Job Was Created* :rocket::rocket:\n \n *Job Url*:\n https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n \n *Repository Name:*\n fendiirfan/chatbot-bocah-alam\n \n *Status:*\n :white_check_mark: Success :white_check_mark:\n \n *Url Commit:*\n ${{ github.event.pull_request.html_url || github.event.head_commit.url }}\n \n *Triggered By:*\n ${{ github.event.pusher.name }}\n \n *CC:*\n <@U04MN9JDA5D>",
+#             "blocks": [
+#               {
+#                 "type": "section",
+#                 "text": {
+#                   "type": "mrkdwn",
+#                   "text": ":rocket::rocket: *Github Action Bot* :rocket::rocket:\n \n *Job Url*:\n https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n \n *Repository Name:*\n fendiirfan/chatbot-bocah-alam\n \n *Status:*\n Success :white_check_mark:\n \n *Url Commit:*\n ${{ github.event.pull_request.html_url || github.event.head_commit.url }}\n \n *Triggered By:*\n ${{ github.event.pusher.name }}\n \n *CC:*\n <!subteam^SAZ94GDB8>"
+#                 }
+#               }
+#             ]
+#           }
+#       env:
+#         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_BOT }}
