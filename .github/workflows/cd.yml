@@ -52,28 +52,28 @@ jobs:
               git clone https://github.com/fendiirfan/chatbot-bocah-alam.git
               echo "===================== Clone successfully ====================="
             fi
-            git clone https://github.com/fendiirfan/chatbot-bocah-alam.git
+            exit 1
 
         } || { # catch
             curl -X POST -H 'Content-type: application/json' --data '{"text": ":rocket::rocket: *Github Action Bot* :rocket::rocket:\n \n *Job Url*:\n https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n \n *Repository Name:*\n fendiirfan/chatbot-bocah-alam\n \n *Status:*\n :warning: Failure :warning:\n \n *Url Commit:*\n ${{ github.event.pull_request.html_url || github.event.head_commit.url }}\n \n *Triggered By:*\n ${{ github.event.pusher.name }}\n \n *CC:*\n <!subteam^SAZ94GDB8>"}' ${{ secrets.SLACK_BOT }} & exit 1
-            
+            echo "masuk ke catch"
         }
 #        curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' ${{ secrets.SLACK_BOT }}
-  slack-notif:
-    runs-on: self-hosted
-    steps:
-    - name: Slack Notif
-      run: |
-        if [ ${{ github.event.pusher.name }} = "alfontius-linata" ]; then
-          slack_member_id="U0317HR1LE5"
-        elif [ ${{ github.event.pusher.name }} = "afsabilly" ]; then
-          slack_member_id="U03PLSBL7S6"
-        elif [ ${{ github.event.pusher.name }} = "fendiirfan" ]; then
-          slack_member_id="U04MN9JDA5D"
-        else
-          slack_member_id="U0317HR1LE5"
-        fi
-        curl -X POST -H 'Content-type: application/json' --data '{"text": ":rocket::rocket: *Job Was Created - * :rocket::rocket:\n \n *Job Url*:\n https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n \n *Repository Name:*\n fendiirfan/chatbot-bocah-alam\n \n *Status:*\n :warning: Failure :warning:\n \n *Url Commit:*\n ${{ github.event.pull_request.html_url || github.event.head_commit.url }}\n \n *Triggered By:*\n ${{ github.event.pusher.name }}\n \n *CC:*\n <@$slack_member_id>"}' ${{ secrets.SLACK_WEBHOOK_GITHUB_ACTION }}
+#   slack-notif:
+#     runs-on: self-hosted
+#     steps:
+#     - name: Slack Notif
+#       run: |
+#         if [ ${{ github.event.pusher.name }} = "alfontius-linata" ]; then
+#           slack_member_id="U0317HR1LE5"
+#         elif [ ${{ github.event.pusher.name }} = "afsabilly" ]; then
+#           slack_member_id="U03PLSBL7S6"
+#         elif [ ${{ github.event.pusher.name }} = "fendiirfan" ]; then
+#           slack_member_id="U04MN9JDA5D"
+#         else
+#           slack_member_id="U0317HR1LE5"
+#         fi
+#         curl -X POST -H 'Content-type: application/json' --data '{"text": ":rocket::rocket: *Job Was Created - * :rocket::rocket:\n \n *Job Url*:\n https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n \n *Repository Name:*\n fendiirfan/chatbot-bocah-alam\n \n *Status:*\n :warning: Failure :warning:\n \n *Url Commit:*\n ${{ github.event.pull_request.html_url || github.event.head_commit.url }}\n \n *Triggered By:*\n ${{ github.event.pusher.name }}\n \n *CC:*\n <@$slack_member_id>"}' ${{ secrets.SLACK_WEBHOOK_GITHUB_ACTION }}
 #   slack-notif:
 #     needs: build
 #     runs-on: self-hosted
