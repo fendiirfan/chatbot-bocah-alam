@@ -31,7 +31,7 @@
 name: Repository Update and Create Folder Example
 
 on:
-  push:
+  pull_request:
     branches:
       - main
 
