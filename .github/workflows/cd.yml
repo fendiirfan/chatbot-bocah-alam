@@ -62,8 +62,8 @@ jobs:
       if: always()
       with:    
         status: ${{ job.status }}
-#         notification_title: "{workflow} has {status_message}"
-        message_format: ":rocket::rocket: *Github Action Bot* :rocket::rocket:\n \n *Job Url*:\n https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n \n *Repository Name:*\n fendiirfan/chatbot-bocah-alam\n \n *Status:*\n :warning: Failure :warning:\n \n *Url Commit:*\n ${{ github.event.pull_request.html_url || github.event.head_commit.url }}\n \n *Triggered By:*\n ${{ github.event.pusher.name }}\n \n *CC:*"
+        notification_title: ":rocket::rocket: *Github Action Bot* :rocket::rocket:"
+        message_format: "*Job Url*:\n https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n \n *Repository Name:*\n fendiirfan/chatbot-bocah-alam\n \n *Status:*\n :warning: Failure :warning:\n \n *Url Commit:*\n ${{ github.event.pull_request.html_url || github.event.head_commit.url }}\n \n *Triggered By:*\n ${{ github.event.pusher.name }}\n \n *CC:*"
 #         footer: "Linked Repo <{repo_url}|{repo}> | <{workflow_url}|View Workflow>"
         notify_when: "failure"
       env:
