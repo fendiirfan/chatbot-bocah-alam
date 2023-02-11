@@ -52,7 +52,6 @@ jobs:
               git clone https://github.com/fendiirfan/chatbot-bocah-alam.git
               echo "===================== Clone successfully ====================="
             fi
-            exit 1
 
         } || { # catch
             curl -X POST -H 'Content-type: application/json' --data '{"text": ":rocket::rocket: *Github Action Bot* :rocket::rocket:\n \n *Job Url*:\n https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n \n *Repository Name:*\n fendiirfan/chatbot-bocah-alam\n \n *Status:*\n :warning: Failure :warning:\n \n *Url Commit:*\n ${{ github.event.pull_request.html_url || github.event.head_commit.url }}\n \n *Triggered By:*\n ${{ github.event.pusher.name }}\n \n *CC:*\n <!subteam^SAZ94GDB8>"}' ${{ secrets.SLACK_BOT }} & exit 1
