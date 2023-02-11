@@ -58,6 +58,13 @@ jobs:
             curl -X POST -H 'Content-type: application/json' --data '{"text": ":rocket::rocket: *Github Action Bot* :rocket::rocket:\n \n *Job Url*:\n https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n \n *Repository Name:*\n fendiirfan/chatbot-bocah-alam\n \n *Status:*\n :warning: Failure :warning:\n \n *Url Commit:*\n ${{ github.event.pull_request.html_url || github.event.head_commit.url }}\n \n *Triggered By:*\n ${{ github.event.pusher.name }}\n \n *CC:*\n <!subteam^SAZ94GDB8>"}' ${{ secrets.SLACK_BOT }} & exit 1
             echo "masuk ke catch"
         }
+    - name: slack notif
+    - uses: ravsamhq/notify-slack-action@v2
+      if: always()
+      with:    
+        message_format: ":rocket::rocket: *Job Was Created - * :rocket::rocket:\n \n *Job Url*:\n https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n \n *Repository Name:*\n fendiirfan/chatbot-bocah-alam\n \n *Status:*\n :warning: Failure :warning:\n \n *Url Commit:*\n ${{ github.event.pull_request.html_url || github.event.head_commit.url }}\n \n *Triggered By:*\n ${{ github.event.pusher.name }}\n \n *CC:*"
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_BOT }}
 #        curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' ${{ secrets.SLACK_BOT }}
 #   slack-notif:
 #     runs-on: self-hosted
