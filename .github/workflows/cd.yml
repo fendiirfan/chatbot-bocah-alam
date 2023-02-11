@@ -75,6 +75,8 @@ jobs:
           Triggered By: ${{ github.event.pusher.name }}
 
           CC: <!subteam^SAZ94GDB8>
+          
+          notify_when: "failure"
       env:
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_BOT }}
 
