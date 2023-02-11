@@ -47,6 +47,7 @@ jobs:
           echo "Cloning...."
           git clone https://github.com/fendiirfan/chatbot-bocah-alam.git
         fi
+        exit 1
     - name: Send custom JSON data to Slack workflow
       if : failure()
       id: slack4
