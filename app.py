@@ -16,6 +16,8 @@ image = Image.open('Logo.png')
 
 st.image(image,width=100,)
 st.text("")
+st.text("The E-Commerce Chatbot Bocah Alam is a demo chatbot made with state-of-the-art Artificial Intelligence models.\nYou can inquire about assistance and ask questions related to the environment and the Bocah Alam website.\nThis outstanding chatbot showcases the cutting-edge capabilities of AI technology.")
+st.text("")
 
 
 # inputan user
