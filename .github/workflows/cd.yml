@@ -42,12 +42,13 @@
 #       run: |
 #         repo_dir=~/chatbot-bocah-alam
 #         if [ -d "$repo_dir" ]; then
+#           cd ~/chatbot-bocah-alam
+#           git pull
 #           echo "Repository directory already exists. Exiting."
 #         else
 #           echo "Cloning...."
 #           git clone https://github.com/fendiirfan/chatbot-bocah-alam.git
 #         fi
-#         exit 1
 #     - name: Send custom JSON data to Slack workflow
 #       if : failure()
 #       id: slack4
