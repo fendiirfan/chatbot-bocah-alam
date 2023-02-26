@@ -1,4 +1,5 @@
-pip install -r requirements.txt
+#!/bin/bash
 pipenv shell
-streamlit run app.py
-# 
+pip install -r requirements.txt
+nohup streamlit run --server.port 8501 app.py &
+
