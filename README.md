@@ -8,5 +8,4 @@ Ecommerce Bocah Alam is an online marketplace platform that focuses on selling e
 
 Our pitching presentation and Projection
 
-![Alt text]([url_of_image](https://raw.githubusercontent.com/fendiirfan/chatbot-bocah-alam/main/component/1.png))
-
+![alt text](https://github.com/fendiirfan/chatbot-bocah-alam/blob/main/component/1.png?raw=true)
