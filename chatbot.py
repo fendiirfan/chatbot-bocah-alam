@@ -14,6 +14,6 @@ def chatBot(text):
   "temperature": 1.0,
   }
   response = requests.post(url, headers=headers, json=data)
-  output = response.json()['choices'][0]['text']
+  output = response.json()
   
   return output
