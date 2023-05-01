@@ -21,8 +21,7 @@ st.text("")
 
 
 # inputan user
-st.write('what can I do for you?')
-user_input = st.text_area(lang_src, height=140)
+user_input = st.text_area('what can I do for you?', height=140)
 
 # tombols
 button = st.button('Send')
